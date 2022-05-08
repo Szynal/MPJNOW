@@ -3,11 +3,11 @@
 # Kurs: Metody przetwarzania języka naturalnego oraz wyszukiwanie (Projekt i Laboratorium)
 
 
-#  PWR - 2 semestr - MGR
+##  PWR - 2 semestr - MGR
 
-# Prowadzący: Jakub Klikowski
+      Prowadzący: Jakub Klikowski
 
-## lab2 
+### lab2 
 
  * Creating a project
      ```bash
