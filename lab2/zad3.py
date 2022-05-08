@@ -2,6 +2,16 @@ import scrapy
 from time import sleep
 
 
+def parse_dir_contents(response):
+    item = {'title': response.xpath('/html/body/main/article/div/header/h1/text()').extract(),
+            'time': response.xpath('/html/body/main/article/div/header/span/span[2]/span/time/text()').extract(),
+            'author': response.xpath('/html/body/main/article/div/header/span/a/span/text()').extract(),
+            'tags': response.xpath('//a[@class = "atomsTags"]/@title').extract(),
+            'content': response.xpath('/html/body/main/article/div/div[5]/div[1]').extract()}
+    print(item)
+    yield item
+
+
 class NewsSpider(scrapy.Spider):
     name = "zad3"
     start_urls = [
@@ -9,21 +19,8 @@ class NewsSpider(scrapy.Spider):
     ]
 
     def parse(self, response):
-
         links = response.xpath('//a[@class = "atomsListingArticleTile__img"]/@href').extract()
         for href in links:
             url = response.urljoin(href)
-            yield scrapy.Request(url, callback = self.parse_dir_contents)
+            yield scrapy.Request(url, callback=parse_dir_contents)
             sleep(2)
-
-
-
-    def parse_dir_contents(self, response):
-        item = {}
-        item['title'] = response.xpath('/html/body/main/article/div/header/h1/text()').extract()
-        item['time'] = response.xpath('/html/body/main/article/div/header/span/span[2]/span/time/text()').extract()
-        item['author'] = response.xpath('/html/body/main/article/div/header/span/a/span/text()').extract()
-        item['tags'] = response.xpath('//a[@class = "atomsTags"]/@title').extract()
-        item['content'] = response.xpath('/html/body/main/article/div/div[5]/div[1]').extract()
-        print(item)
-        yield item
