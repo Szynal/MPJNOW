@@ -39,6 +39,13 @@
        scrapy crawl quotes
     ```
     
-   
+      Dokumentacja (lab2):
+      <https://gazetawroclawska.pl/wiadomosci/>
+      <https://docs.scrapy.org/en/latest/intro/install.html>
+      <https://docs.scrapy.org/en/latest/intro/tutorial.html>
+      <https://docs.scrapy.org/en/latest/topics/selectors.html#working-with-xpaths>
+      <https://blog.hubspot.com/website/how-to-inspect>
+      <https://docs.scrapy.org/en/latest/topics/spiders.html?highlight=rule#crawlspider>
+      <https://docs.python.org/3/library/json.html>
 
   
