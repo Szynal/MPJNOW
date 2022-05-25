@@ -7,6 +7,8 @@ from collections import Counter
 from pandas import DataFrame
 import json
 
+print(f"Zad2 lab4 \n")
+
 mypath = "data"
 stopwords = stopwords.words('english')
 stemmer = PorterStemmer()
